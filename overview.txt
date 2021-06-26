@@ -1,0 +1,28 @@
+description:
+    an app that can capture a video from which we detect different vegtables and suggest them the recipes that they can make.
+
+
+App:
+    Frontend:
+        + capture videos
+        + detect vegtables
+        + comments on recipes
+    Backend:
+        in: { vegtables: [], fruits: [] }
+        + search recipes based on the recieved ingredients
+        out: { recipes: [{ name, ingredients, procedure, (comments={type=[Neutral|Suggestion|Criticism|Appreciation], comment}, likes, dislikes) }, ] }
+
+
+    Functionalities:
+        + capture image/video [App]
+        + detect ingredients (vegtables) [AI]
+        + search recipes based on detected ingredients [App]
+        + display recipes [App]
+        + comment on recipes [App]
+        + classify comments (Neutral|Suggestion|Criticism|Praise) [AI]
+
+    AI:
+        Object Detection
+            + detect vegtables and fruits
+        Natural Language Processing
+            + detect comments type
