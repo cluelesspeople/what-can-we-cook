@@ -1,7 +1,7 @@
 import os
 import json
 
-os.chdir("../victor/labels/train")
+os.chdir("../victor/labels/val")
 files = os.listdir()
 
 record = {}
@@ -26,5 +26,5 @@ def convert_set_to_list(obj):
     return new_obj
 
 os.chdir("../../..")
-with open('victor-train.json', 'w') as file:
+with open('victor-val.json', 'w') as file:
     json.dump(convert_set_to_list(record), file)
