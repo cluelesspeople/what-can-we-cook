@@ -1,9 +1,9 @@
 import os
 import json
 
-json_file = "../aladdinss.json"
-images_dir = "../aladdinss"
-labels_dir = "../aladdinss"
+json_file = "../victor-val.json"
+images_dir = "../victor/images/val"
+labels_dir = "../victor/labels/val"
 save_dir = "../khavin"
 
 with open(json_file) as file:
@@ -31,8 +31,8 @@ def readAndSave(file_name, class_name, i, img_read_loc=images_dir, txt_read_loc=
             ext += 1
 
 for class_name, file_names in data_info.items():
-    os.makedirs(f"{save_dir}/images/{class_name}")
-    os.makedirs(f"{save_dir}/labels/{class_name}")
+    os.makedirs(f"{save_dir}/images/{class_name}", exist_ok=True)
+    os.makedirs(f"{save_dir}/labels/{class_name}", exist_ok=True)
     offset = len(os.listdir(f"{save_dir}/images/{class_name}")) + 1
     for i, file_name in enumerate(file_names):
         readAndSave(file_name, class_name, i + offset)
