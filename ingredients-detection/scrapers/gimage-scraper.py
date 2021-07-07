@@ -43,9 +43,9 @@ def download_images(what, how_many=20, where=""):
             image_link = image_tag.get_attribute_list("src")[0]
             save_image(image_link, ((i*images_per_page) + j+1), what, where)
 
-
-def main():
-    download_images("cats", 35, "data/cats")
-
+   
 if __name__ == '__main__':
-    main()
+    with open("selected.txt") as file:
+        ingredients = file.read().split("\n")
+    for ingredient in ingredients:
+        download_images(ingredient, 60, f"data/{ingredient}")
